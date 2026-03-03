@@ -18,34 +18,26 @@ class CompanySettingSeeder extends Seeder
             [
                 'company_name' => 'PT Al Hasani',
                 'logo_path' => null,
-                'address_head_office' => "Gedung Menara 165, Lantai 4\nJl. TB Simatupang Kav. 1, Cilandak\nJakarta Selatan, DKI Jakarta 12560",
+                'address_head_office' => "Jln. Mesjid Taqwa no.57 Dusun Seulawah Gampong Seutui Kecamatan Baiturrahmah Kota Banda Aceh",
                 'operational_hours' => 'Senin - Jumat: 08.00 - 17.00 WIB | Sabtu: 09.00 - 13.00 WIB',
 
-                'wa_number_indo' => '6285877524373',
-                'wa_number_saudi' => '+96 812 3456 7890',
-                'email_primary' => 'info@allhasani-travel.com',
-                'email_secondary' => 'support@allhasani-travel.com',
+                'wa_number_indo' => '+6285253706721',
+                'wa_number_saudi' => '+966540984736',
+                'email_primary' => '-',
+                'email_secondary' => '-',
 
                 'social_media' => [
-                    'facebook' => 'https://www.facebook.com/allhasani',
-                    'instagram' => 'https://www.instagram.com/allhasani_travel',
-                    'youtube' => 'https://www.youtube.com/@allhasani_tv',
-                    'tiktok' => 'https://www.tiktok.com/@ridhsuki',
+                    'facebook' => 'https://www.facebook.com/trangkil.santri/',
+                    'instagram' => 'https://www.instagram.com/santritrangkil/',
+                    'youtube' => '',
+                    'tiktok' => '',
                 ],
 
                 'branches' => [
                     [
-                        'name' => 'Cabang Surabaya',
-                        'address' => 'Jl. Tunjungan No. 55, Genteng, Surabaya, Jawa Timur'
+                        'name' => 'Aceh',
+                        'address' => 'Jln. Mesjid Taqwa no.57 Dusun Seulawah Gampong Seutui Kecamatan Baiturrahmah Kota Banda Aceh'
                     ],
-                    [
-                        'name' => 'Cabang Bandung',
-                        'address' => 'Jl. Ir. H. Juanda No. 102 (Dago), Bandung, Jawa Barat'
-                    ],
-                    [
-                        'name' => 'Cabang Makassar',
-                        'address' => 'Jl. A.P. Pettarani Ruko Diamond No. 8, Makassar'
-                    ]
                 ],
 
                 'stats' => [

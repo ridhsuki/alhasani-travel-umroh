@@ -78,22 +78,16 @@
                             <div>
                                 <x-input-label for="wa_number_indo" value="WhatsApp (Indonesia)" />
                                 <div class="relative mt-1">
-                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                        <span class="text-gray-500 font-bold">+</span>
-                                    </div>
                                     <x-text-input id="wa_number_indo" name="wa_number_indo" type="text"
-                                        class="block w-full pl-7" :value="old('wa_number_indo', $setting->wa_number_indo)" placeholder="6281xxxx" required />
+                                        class="block w-full" :value="old('wa_number_indo', $setting->wa_number_indo)" placeholder="6281xxxx" required />
                                 </div>
                                 <x-input-error :messages="$errors->get('wa_number_indo')" class="mt-2" />
                             </div>
                             <div>
                                 <x-input-label for="wa_number_saudi" value="WhatsApp (Saudi) - Opsional" />
                                 <div class="relative mt-1">
-                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                        <span class="text-gray-500 font-bold">+</span>
-                                    </div>
                                     <x-text-input id="wa_number_saudi" name="wa_number_saudi" type="text"
-                                        class="block w-full pl-7" :value="old('wa_number_saudi', $setting->wa_number_saudi)" placeholder="9665xxxx" />
+                                        class="block w-full" :value="old('wa_number_saudi', $setting->wa_number_saudi)" placeholder="9665xxxx" />
                                 </div>
                                 <x-input-error :messages="$errors->get('wa_number_saudi')" class="mt-2" />
                             </div>
