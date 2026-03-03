@@ -1,9 +1,27 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    RewriteCond %{THE_REQUEST} \s/public [NC]
-    RewriteRule ^ - [L,R=404]
+    # 1. KEAMANAN: Blokir akses ke file sensitif
+    <FilesMatch "^\.env|composer\.(json|lock)|package(-lock)?\.json$|^phpunit\.xml$|.*\.log$">
+        Order allow,deny
+        Deny from all
+    </FilesMatch>
 
+    # 2. KEAMANAN: Matikan browsing direktori (mencegah orang lihat daftar file)
+    Options -Indexes
+
+    # 3. SEO: Redirect jika user mencoba mengetik /public/ di URL
+    # Ini mencegah duplikasi konten (Canonical Issues)
+    RewriteCond %{THE_REQUEST} \s/public/ [NC]
+    RewriteRule ^public/(.*)$ /$1 [R=301,L]
+
+    # 4. SISTEM: Arahkan semua request ke folder public secara internal
     RewriteCond %{REQUEST_URI} !^/public/
     RewriteRule ^(.*)$ public/$1 [L]
 </IfModule>
+
+# 5. FIX DOWNLOAD: Paksa Apache mengenali file PHP (Jika masih terdownload)
+# Ganti php82 dengan versi yang kamu gunakan di hosting (misal: php81, php83)
+<FilesMatch "\.php$">
+    AddHandler application/x-httpd-php82 .php
+</FilesMatch>
