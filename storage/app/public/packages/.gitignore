@@ -1,0 +1,9 @@
+# Abaikan semua file baru lainnya yang terbuat di folder ini
+*
+
+# Jangan abaikan file .gitignore ini sendiri
+!.gitignore
+
+# Jangan abaikan file dummy image berawalan tertentu agar ikut ke Git
+!La_Al_Hasani_Group_x_PTA__page-*.jpg
+!No.pdf_page-*.jpg
