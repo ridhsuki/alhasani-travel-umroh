@@ -16,7 +16,7 @@ class CompanySettingSeeder extends Seeder
         CompanySetting::updateOrCreate(
             ['id' => 1],
             [
-                'company_name' => 'PT Al Hasani',
+                'company_name' => 'PT Al Hasani Tour Travel',
                 'logo_path' => null,
                 'address_head_office' => "Jln. Mesjid Taqwa no.57 Dusun Seulawah Gampong Seutui Kecamatan Baiturrahmah Kota Banda Aceh",
                 'operational_hours' => 'Senin - Jumat: 08.00 - 17.00 WIB | Sabtu: 09.00 - 13.00 WIB',

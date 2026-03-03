@@ -27,6 +27,75 @@
             .rich-text-container li {
                 margin-bottom: 8px;
             }
+
+            .clickable-image {
+                cursor: pointer;
+                transition: opacity 0.3s ease;
+            }
+
+            .clickable-image:hover {
+                opacity: 0.9;
+            }
+
+            .image-hint {
+                text-align: center;
+                font-size: 13px;
+                color: #666;
+                padding: 10px;
+                background: #f9f9f9;
+                border-bottom: 1px solid var(--medium-gray);
+                font-style: italic;
+            }
+
+            .image-modal {
+                display: none;
+                position: fixed;
+                z-index: 9999;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.85);
+                justify-content: center;
+                align-items: center;
+            }
+
+            .image-modal-content {
+                max-width: 90vw;
+                max-height: 90vh;
+                object-fit: contain;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+                animation: zoomIn 0.3s ease;
+            }
+
+            .image-modal-close {
+                position: absolute;
+                top: 20px;
+                right: 30px;
+                color: #fff;
+                font-size: 40px;
+                font-weight: bold;
+                cursor: pointer;
+                transition: color 0.3s;
+                z-index: 10000;
+            }
+
+            .image-modal-close:hover {
+                color: var(--primary-green, #bbb);
+            }
+
+            @keyframes zoomIn {
+                from {
+                    transform: scale(0.9);
+                    opacity: 0;
+                }
+
+                to {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+            }
         </style>
     @endpush
 
@@ -57,8 +126,15 @@
                     style="background: var(--white); border-radius: var(--border-radius); box-shadow: var(--shadow); overflow: hidden; border: 1px solid var(--medium-gray);">
 
                     @if ($package->image)
-                        <img src="{{ asset('storage/' . $package->image) }}" alt="{{ $package->name }}"
-                            style="width: 100%; max-height: 500px; object-fit: cover; display: block; border-bottom: 1px solid var(--medium-gray);">
+                        <div style="position: relative;">
+                            <img src="{{ asset('storage/' . $package->image) }}" alt="{{ $package->name }}"
+                                class="clickable-image" onclick="openModal()" title="Klik untuk memperbesar gambar"
+                                style="width: 100%; max-height: 500px; object-fit: cover; display: block;"
+                                loading="lazy">
+                            <div class="image-hint">
+                                <i class="fas fa-search-plus"></i> Klik gambar untuk melihat brosur selengkapnya
+                            </div>
+                        </div>
                     @endif
 
                     <div style="padding: 40px 30px;">
@@ -94,5 +170,33 @@
         </section>
 
     </div>
+
+    @if ($package->image)
+        <div id="fullImageModal" class="image-modal" onclick="closeModal(event)">
+            <span class="image-modal-close" onclick="closeModal(event)">&times;</span>
+            <img class="image-modal-content" id="modalImage" src="{{ asset('storage/' . $package->image) }}">
+        </div>
+    @endif
+
+    @push('scripts')
+        <script>
+            function openModal() {
+                var modal = document.getElementById("fullImageModal");
+                if (modal) {
+                    modal.style.display = "flex";
+                    document.body.style.overflow = "hidden";
+                }
+            }
+
+            function closeModal(event) {
+                var modal = document.getElementById("fullImageModal");
+
+                if (event.target === modal || event.target.className === 'image-modal-close') {
+                    modal.style.display = "none";
+                    document.body.style.overflow = "auto";
+                }
+            }
+        </script>
+    @endpush
 
 </x-layouts.landing>

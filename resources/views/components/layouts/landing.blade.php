@@ -24,6 +24,7 @@
     </a>
 
     <script src="{{ asset('assets/js/landing.js') }}"></script>
+    @stack('scripts')
     <script>
         function sendToWhatsapp(event) {
             event.preventDefault();
