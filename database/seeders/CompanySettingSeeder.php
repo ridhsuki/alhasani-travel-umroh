@@ -18,7 +18,7 @@ class CompanySettingSeeder extends Seeder
             [
                 'company_name' => 'PT Al Hasani Tour Travel',
                 'logo_path' => null,
-                'address_head_office' => "Jln. Mesjid Taqwa no.57 Dusun Seulawah Gampong Seutui Kecamatan Baiturrahmah Kota Banda Aceh",
+                'address_head_office' => "Ka'kiyah Mekkah Al Mukarromah Saudi Arabia",
                 'operational_hours' => 'Senin - Jumat: 08.00 - 17.00 WIB | Sabtu: 09.00 - 13.00 WIB',
 
                 'wa_number_indo' => '+6285253706721',
@@ -35,8 +35,8 @@ class CompanySettingSeeder extends Seeder
 
                 'branches' => [
                     [
-                        'name' => 'Aceh',
-                        'address' => 'Jln. Mesjid Taqwa no.57 Dusun Seulawah Gampong Seutui Kecamatan Baiturrahmah Kota Banda Aceh'
+                        'name' => 'Jawa Timur',
+                        'address' => 'Desa Temboro kec.Karas kab.Magetan provinsi Jawa Timur Indonesia'
                     ],
                 ],
 
