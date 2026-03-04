@@ -23,7 +23,7 @@ class CompanySettingSeeder extends Seeder
 
                 'wa_number_indo' => '+6285253706721',
                 'wa_number_saudi' => '+966540984736',
-                'email_primary' => '-',
+                'email_primary' => 'alhasaniharamaingroup@gmail.com',
                 'email_secondary' => '-',
 
                 'social_media' => [
